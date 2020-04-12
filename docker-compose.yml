@@ -1,0 +1,6 @@
+version: '2.0'
+services:
+    ninjam:
+        build: .
+        ports:
+            - "2049:2049"
