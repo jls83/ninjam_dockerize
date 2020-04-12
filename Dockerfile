@@ -12,5 +12,9 @@ COPY --from=builder /ninjam/ninjam/server/ninjamsrv /usr/local/bin/ninjamsrv
 
 RUN mkdir /ninjam
 COPY server.cfg /ninjam/server.cfg
+COPY user_items.cfg /ninjam/user_items.cfg
+
+#
+RUN cat /ninjam/user_items.cfg >> /ninjam/server.cfg
 ENTRYPOINT ["ninjamsrv", "/ninjam/server.cfg"]
 
