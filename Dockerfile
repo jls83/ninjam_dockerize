@@ -9,7 +9,8 @@ RUN git clone https://github.com/justinfrankel/ninjam.git /ninjam && \
 FROM alpine:latest
 RUN apk add libgcc libstdc++
 COPY --from=builder /ninjam/ninjam/server/ninjamsrv /usr/local/bin/ninjamsrv
+
 RUN mkdir /ninjam
-COPY --from=builder /ninjam/ninjam/server/example.cfg /ninjam/server.cfg
+COPY server.cfg /ninjam/server.cfg
 ENTRYPOINT ["ninjamsrv", "/ninjam/server.cfg"]
 
