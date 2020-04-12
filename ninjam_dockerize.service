@@ -1,0 +1,15 @@
+[Unit]
+Description=Ninjam
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+StandardError=null
+StandardOutput=null
+WorkingDirectory=/home/jls83/ninjam_dockerize
+ExecStart=/usr/bin/docker-compose -f /home/jls83/ninjam_dockerize/docker-compose.yml up -d
+ExecStop=/usr/bin/docker-compose -f /home/jls83/ninjam_dockerize/docker-compose.yml down
+
+[Install]
+WantedBy=multi-user.target
